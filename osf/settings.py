@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'authentication',
     'component',
 )
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'osf.urls'
 
 WSGI_APPLICATION = 'osf.wsgi.application'
 
-AUTH_USER_MODEL = 'authentication.User'
+AUTH_USER_MODEL = 'component.User'
 
 
 # Database
