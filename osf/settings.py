@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'guardian',
+    'rest_framework',
     'authentication',
     'component',
 )
@@ -56,6 +58,13 @@ ROOT_URLCONF = 'osf.urls'
 WSGI_APPLICATION = 'osf.wsgi.application'
 
 AUTH_USER_MODEL = 'component.User'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
+)
+
+ANONYMOUS_USER_ID = -1
 
 
 # Database
