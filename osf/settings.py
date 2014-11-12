@@ -43,6 +43,19 @@ INSTALLED_APPS = (
     'component',
 )
 
+INSTALLED_ADDONS = (
+    'github',
+)
+
+INSTALLED_APPS = INSTALLED_APPS + INSTALLED_ADDONS
+
+import importlib
+
+ADDON_CONFIGS = {
+    addon: importlib.import_module('{}.settings'.format(addon))
+    for addon in INSTALLED_ADDONS
+}
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

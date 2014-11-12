@@ -111,4 +111,17 @@ class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ComponentSerializer
 
 
+# class ComponentContributors(viewsets.ModelViewSet):
+
+#     queryset = Component.objects.all()
+
+#     @detail_route
+#     def add(self, request):
+#         pass
+
+#     @detail_route
+#     def remove(self, request):
+#         pass
+
+
 

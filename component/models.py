@@ -1,6 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.dispatch import receiver
 from django.db.models.loading import get_model
+
+from osf.addons.models import AddonMixin
 
 
 class Guid(models.Model):
@@ -45,12 +49,12 @@ def get_app_label(schema):
 from django.contrib.auth.models import AbstractUser
 
 
-class User(GuidMixin, AbstractUser):
+class User(GuidMixin, AbstractUser, AddonMixin):
     pass
 
 from guardian.shortcuts import get_perms, assign_perm, remove_perm
 
-class Component(GuidMixin, models.Model):
+class Component(GuidMixin, models.Model, AddonMixin):
     title = models.CharField(max_length=100)
     parent = models.ForeignKey('Component', related_name='children', blank=True, null=True)
     contributors = models.ManyToManyField(User, related_name='components')
